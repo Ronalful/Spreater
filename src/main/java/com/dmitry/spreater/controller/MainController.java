@@ -1,8 +1,10 @@
 package com.dmitry.spreater.controller;
 
 import com.dmitry.spreater.domain.Message;
+import com.dmitry.spreater.domain.User;
 import com.dmitry.spreater.repos.MessageRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,9 +30,9 @@ public class MainController {
     }
 
     @PostMapping("/main")
-    public String add(@RequestParam String text, @RequestParam String tag, Model model) {
+    public String add(@AuthenticationPrincipal User user, @RequestParam String text, @RequestParam String tag, Model model) {
         if (!text.isEmpty() && !tag.isEmpty()) {
-            messageRepo.save(new Message(text, tag));
+            messageRepo.save(new Message(text, tag, user));
         }
 
         Iterable<Message> messages = messageRepo.findAll();
