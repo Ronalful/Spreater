@@ -1,12 +1,20 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
     <div>
+        <form th:action="@{/logout}" method="post">
+            <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </div>
+    <div>
          <form method="post" action="/main">
+             <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
              <input type="text" name="text" placeholder="Введите сообщение">
              <input type="text" name="tag" placeholder="Тэг">
              <button type="submit">Добавить</button>
@@ -15,6 +23,7 @@
     <div>
         <h3>Фильтр</h3>
         <form method="post" action="/main/filter">
+            <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
             <input type="text" name="filter" placeholder="Введите фильтр">
             <button type="submit">Найти</button>
         </form>

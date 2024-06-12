@@ -1,4 +1,4 @@
-package com.dmitry.spreater;
+package com.dmitry.spreater.controller;
 
 import com.dmitry.spreater.domain.Message;
 import com.dmitry.spreater.repos.MessageRepo;
@@ -8,10 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 @Controller
-public class GreetingController {
+public class MainController {
 
     @Autowired
     MessageRepo messageRepo;
