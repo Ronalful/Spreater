@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter @Setter @NoArgsConstructor
 public class Message {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
     private String text;
     private String tag;
