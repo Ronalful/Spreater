@@ -3,7 +3,9 @@ package com.dmitry.spreater.controller;
 import com.dmitry.spreater.domain.Message;
 import com.dmitry.spreater.domain.User;
 import com.dmitry.spreater.repos.MessageRepo;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,9 +14,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@AllArgsConstructor
 public class MainController {
 
-    @Autowired
     MessageRepo messageRepo;
 
     @GetMapping("/")
@@ -47,4 +49,5 @@ public class MainController {
         model.addAttribute("filter", "");
         return "main";
     }
+
 }

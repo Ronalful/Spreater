@@ -12,8 +12,9 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import javax.sql.DataSource;
 
-@Configuration
+
 @EnableWebSecurity
+@Configuration
 public class WebSecurityConfig {
     @Autowired
     private UserService userService;
