@@ -1,5 +1,5 @@
 <#import "parts/common.ftlh" as c>
 <@c.page>
-<p>Привет, <a href="/main">сюда</a></p>
+<p><a href="/main">Привет, пользуйся приложением на здоровье!</a></p>
 </@c.page>
 
